@@ -1,0 +1,199 @@
+﻿@using OnlineSicil.Models;
+@{
+    ViewBag.Title = "SicilAra";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+@{ 
+
+}
+<style>
+    .sonuclar {
+        background-color: #363768 !important;
+        padding: 20px !important;
+        margin:0px !important;
+        color:white !important;
+    }
+</style>
+<div class="sonuclar" style="margin-top:-20px !important">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 style="color:white"><strong>Online Sicil</strong> Araması Yapıldı</h4>
+            </div>
+            <div class="col-md-6">
+                <div class="search_bar_list">
+                    <input type="text" class="form-control" id="aramacubugu" placeholder="Aynı Kategoride Tekrar Arama Yapın">
+                    <input type="submit" onclick="window.location = '../../sicil-ara/@ViewBag.Tur/' + document.getElementById('aramacubugu').value;" value="Arama Yap">
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /results -->
+<style>
+    .switch-field ul li {
+        background-color: #6f42c1;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+    }
+</style>
+<div class="filters_listing">
+    <div class="container">
+        <ul class="clearfix">
+            <li>
+                <h6>Arama Özellikleri</h6>
+                <div class="switch-field">
+                    <ul>
+                        <li>
+                            @{
+                                if (ViewBag.Tur == "isci")
+                                {
+                                    <a>"İşçi" Arandı</a>
+                                }
+                                else
+                                {
+                                    <a>"İşveren" Arandı</a>
+                                }
+                            }
+
+                        </li>
+                        <li>
+                            Türkiye Geneli
+                        </li>
+                    </ul>                   
+                </div>
+            </li>
+       
+            <li>
+                <h6 style="color:black">Şehir Seç</h6>
+                <select name="orderby" class="selectbox">
+                    <option value="Closest">Türkiye Geneli</option>
+                    <option value="Best rated">Devre Dışı</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <!-- /container -->
+</div>
+<!-- /filters -->
+
+<div class="container" style="margin-top:20px">
+    <div class="row">
+        <div class="col-sm-12">
+            <h6><strong>@ViewBag.AnahtarKelime</strong> kelimesi için sonuçlar:</h6>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-lg-7">
+            @{
+                OnlineSicilDBEntities2 db = new OnlineSicilDBEntities2();
+
+                foreach (var item in db.SicilKayitlari)
+                {
+                    if (item.sicilbilgi == ViewBag.Tur)
+                    {
+                        if (ViewBag.Tur == "isci" && item.adsoyad.ToUpper().IndexOf(ViewBag.AnahtarKelime.ToUpper()) >= 0)
+                        {
+                            foreach (var items in db.City)
+                            {
+                                if (item.sehir == items.code)
+                                {
+                                    ViewBag.Sehir = items.name;
+                                }
+                            }
+                            <div class="strip_list wow fadeIn">
+                                <figure>
+                                    @{
+                                        if (item.resim != null)
+                                        {
+                                            <a><img src="~/Content/sicil-photos/@item.resim" alt=""></a>
+                                        }
+                                        else
+                                        {
+                                            <a ><img src="~/Content/img/default.jpg" alt=""></a>
+                                        }
+                                    }
+
+                                </figure>
+                                <small>İşçi</small>
+                                <h3>@item.adsoyad</h3>
+                                <p><strong>Yaşadığı Şehir:</strong> @ViewBag.Sehir  - <strong>Telefon Numarası: </strong>@item.telefon</p>
+                                @{ 
+                                    if (item.dolandirici == "1")
+                                    {
+                                      <a data-toggle="tooltip" data-placement="top" data-original-title="Online Sicil yöneticileri tarafından onaylanmış dolandırıcı." style="background-color:indianred;color:white;padding:5px;border-radius:10px;cursor:default;" class="badge_list_1">Onaylı Dolandırıcı</a>
+                                    }
+                                }
+                                
+                                <ul>
+                                    <li><a disabled href="#"  onclick="window.location = '../../isci-sicil-bildir'"  class="btn_listing">Kişiye Sicil Kaydı Aç</a></li>
+
+                                    <li><a href="../../sicil/isci/@item.id">Sicili İncele</a></li>
+                                </ul>
+                            </div>
+                        }
+                        if (ViewBag.Tur == "isveren" && item.firmaunvani.ToUpper().IndexOf(ViewBag.AnahtarKelime.ToUpper()) >= 0)
+                        {
+                            foreach (var items in db.City)
+                            {
+                                if (item.sehir == items.code)
+                                {
+                                    ViewBag.Sehir = items.name;
+                                }
+                            }
+                            <div class="strip_list wow fadeIn">
+                                <figure>
+                                    @{
+                                        if (item.resim != null)
+                                        {
+                                            <a ><img src="~/Content/sicil-photos/@item.resim" alt=""></a>
+                                        }
+                                        else
+                                        {
+                                            <a ><img src="~/Content/img/default.jpg" alt=""></a> 
+                                        }
+                                    }
+                                    
+                                </figure>
+                                <small>İşveren</small>
+                                <h3>@item.firmaunvani</h3>
+                                <p>"@ViewBag.Sehir" şehrinde işletmesi bulunuyor. <strong>Yetkilisi:</strong> @item.adsoyad</p>
+                                @{
+                                    if (item.dolandirici == "1")
+                                    {
+                                        <a data-toggle="tooltip" data-placement="top" data-original-title="Online Sicil yöneticileri tarafından onaylanmış dolandırıcı." style="background-color:indianred;color:white;padding:5px;border-radius:10px;cursor:default;" class="badge_list_1">Onaylı Dolandırıcı</a>
+                                    }
+                                }
+                                <ul>
+                                    <li><a href="#" onclick="window.location = '../../isveren-sicil-bildir'" class="btn_listing">Kişiye Sicil Kaydı Aç</a></li>
+
+                                    <li><a href="../../sicil/isveren/@item.id">Sicili İncele</a></li>
+                                </ul>
+                            </div>
+                        }
+                    }
+                }
+            }
+
+            <!-- /strip_list -->
+
+
+           
+        </div>
+        <!-- /col -->
+
+        <aside class="col-lg-5" id="sidebar">
+            <div id="map_listing" class="normal_list" style="border:none !important">
+                <img  src="~/Content/img/sidebar-resim.png" />
+            </div>
+        </aside>
+        <!-- /aside -->
+
+    </div>
+    <!-- /row -->
+</div>
+

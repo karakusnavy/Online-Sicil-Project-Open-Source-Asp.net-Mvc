@@ -1,0 +1,60 @@
+﻿@model OnlineSicil.Models.Isverenler
+@{
+    /**/
+
+    ViewBag.Title = "Login_Isveren";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+
+
+<div style="margin-top:-20px" class="bg_color_2">
+    <div class="container margin_60_35">
+        <div id="login-2">
+            <h1>İşveren Girişi Yap</h1>
+            <style>
+                .kutucuk {
+                    font-weight: bold;
+                    margin: 10px;
+                    background-color: lightgray;
+                    padding: 10px;
+                    border-radius: 20px;
+                    color: black;
+                }
+
+                    .kutucuk:hover {
+                        background-color: white;
+                        cursor: pointer;
+                        color: red;
+                    }
+            </style>
+            <div class="box_form clearfix">
+                <div class="box_login" style="margin-top:-30px">
+                    <center><img src="~/Content/img/isveren.png" height="150px" /></center>
+                    İşveren girişi sayfasına hoş geldiniz. Hemen giriş yaparak sicil kaydı yapabilirsiniz.
+
+                </div>
+                @using (Html.BeginForm("LoginIsverenPost", "HomeController", FormMethod.Post))
+                {
+                    <h6 style="color:red;margin-left:10px">@ViewBag.Hata</h6>
+                    <div class="box_login last">
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.eposta, new { @class = "form-control", @placeholder = "E-Posta Adresi" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.sifre, new { @class = "form-control", @placeholder = "Şifre", type = "password" })
+                            <a href="#0" class="forgot"><small>Şifremi Unuttum?</small></a>
+                        </div>
+                        <div class="form-group">
+                            <input class="btn_1" type="submit" value="Giriş Yap">
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <p class="text-center link_bright">Henüz üye olmadın mı? <a href="/register"><strong>Hemen Üye Ol!</strong></a></p>
+        </div>
+        <!-- /login -->
+    </div>
+</div>
+
+

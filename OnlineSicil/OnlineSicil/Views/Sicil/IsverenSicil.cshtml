@@ -1,0 +1,243 @@
+﻿@using OnlineSicil.Models
+@model OnlineSicil.Models.Yorumlar
+@{
+    ViewBag.Title = "IsverenSicil";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+
+
+<div class="container margin_60" style="margin-top:-50px">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <nav id="secondary_nav">
+                <div class="container">
+                    <center>
+                        <h5 style="color:white">
+                            @ViewBag.FirmaUnvani<br />
+                            Sicil Kaydı
+                        </h5>
+
+                    </center>
+                    b
+                </div>
+            </nav>
+            <div id="section_1">
+
+                <div class="box_general_3">
+                    <a style="text-decoration:underline">Bu Sicil Kaydını Ekleyen Üye:</a> <a href="../../profil/@ViewBag.Ekleyen" style="cursor:pointer;font-weight:bold">@ViewBag.Ekleyen</a>
+                    <div class="profile">
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3">
+                                <figure>
+                                    @{
+                                        if (ViewBag.Resim != null)
+                                        {
+                                            <img src="~/Content/sicil-photos/@ViewBag.Resim" alt="" class="img-fluid">
+                                        }
+                                        else
+                                        {
+                                            <img src="~/Content/img/default.jpg" alt="" class="img-fluid">
+                                        }
+                                    }
+                                </figure>
+                            </div>
+                            <div class="col-lg-5 col-md-12">
+
+                                <small>İşveren</small>
+                                <h1>@ViewBag.FirmaUnvani</h1>
+
+
+                                <ul class="statistic">
+                                    @{
+                                        if (ViewBag.Dolandirici == "1")
+                                        {
+                                            <li style="background-color:indianred !important">Onaylı Kötü Sicil</li>
+                                        }
+                                        if (ViewBag.Goruntuleme == null || ViewBag.Goruntuleme == "")
+                                        {
+                                            <li>1 Görüntüleme</li>
+                                        }
+                                        else
+                                        {
+                                            <li>@ViewBag.Goruntuleme Görüntüleme</li>
+                                        }
+                                    }
+
+
+
+                                </ul>
+                                <ul class="contacts">
+                                    <li>
+                                        <h6>Firma Yetkilisi</h6>
+                                        @ViewBag.YetkiliAdSoyad
+                                    </li>
+                                    <li>
+                                        <h6>E-Posta Adresi</h6>
+                                        @ViewBag.Eposta
+                                    </li>
+                                    <li>
+                                        <h6>Telefon Numarası</h6> <a>@ViewBag.Telefon</a>
+                                    </li>
+                                    <li>
+                                        <h6>Firma Adresi</h6> <a>@ViewBag.Adres @ViewBag.Sehir</a>
+                                    </li>
+                                    <li>
+                                        <h6>Firma Sitesi</h6> <a>@ViewBag.SiteAdresi</a>
+                                    </li>
+                                    <li>
+                                        <h6>Sicil Açılış Tarihi</h6> <a>@ViewBag.UyeTarihi</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- /profile -->
+                    <div class="indent_title_in">
+                        <h3>Hakkında Açıklama</h3>
+                        <p>Sicil Kaydı yapan üyenin sicil kaydını yaptığı kişi hakkındaki açıklama</p>
+                    </div>
+                    <div class="wrapper_indent">
+                        <p>@ViewBag.Aciklama</p>
+                    </div>
+                    <!-- /wrapper indent -->
+
+                    <hr>
+                    <!-- /profile -->
+                    <div class="indent_title_in">
+                        <h3>Resimler / Kanıtlar</h3>
+                        <p>Sicil Kaydı yapan üyenin sicil kaydını yaptığı kişi hakkında verdiği resimler.</p>
+                    </div>
+                    <div class="wrapper_indent">
+                        <div class="bg_color_1">
+
+                            <div id="reccomended" class="owl-carousel owl-theme">
+                                @{
+                                    if (ViewBag.Kanit1 != null)
+                                    {
+                                        <div class="item">
+                                            <a href="">
+                                                <img src="~/Content/sicil-photos/@ViewBag.Kanit1" alt="">
+                                            </a>
+                                        </div>
+                                    }
+                                    if (ViewBag.Kanit2 != null)
+                                    {
+
+                                        <div class="item">
+                                            <a href="">
+                                                <img src="~/Content/sicil-photos/@ViewBag.Kanit2" alt="">
+                                            </a>
+                                        </div>
+                                    }
+                                    if (ViewBag.Kanit3 != null)
+                                    {
+                                        <div class="item">
+                                            <a href="">
+                                                <img src="~/Content/sicil-photos/@ViewBag.Kanit3" alt="">
+                                            </a>
+                                        </div>
+                                    }
+                                    if (ViewBag.Kanit4 != null)
+                                    {
+                                        <div class="item">
+                                            <a href="">
+                                                <img src="~/Content/sicil-photos/@ViewBag.Kanit4" alt="">
+                                            </a>
+                                        </div>
+                                    }
+                                    if (ViewBag.Kanit5 != null)
+                                    {
+                                        <div class="item">
+                                            <a href="">
+                                                <img src="~/Content/sicil-photos/@ViewBag.Kanit5" alt="">
+                                            </a>
+                                        </div>
+                                    }
+                                    if (ViewBag.Kanit1 == null && ViewBag.Kanit2 == null && ViewBag.Kanit3 == null && ViewBag.Kanit4 == null && ViewBag.Kanit5 == null)
+                                    {
+                                        <a>Resim bulunmuyor.</a>
+                                    }
+                                }
+
+
+                            </div>
+                            <!-- /carousel -->
+                            <!-- /container -->
+                        </div>
+                        <!-- /white_bg -->
+                    </div>
+                    <!-- /wrapper indent -->
+
+                    <hr>
+
+
+                    @{
+                        OnlineSicilDBEntities2 db = new OnlineSicilDBEntities2();
+                        foreach (var item in db.Yorumlar)
+                        {
+                            if (item.sicilid == ViewBag.Id)
+                            {
+                                <div class="review-box clearfix">
+                                    <figure class="rev-thumb">
+
+                                    </figure>
+                                    <div class="rev-content">
+                                        <div class="rev-info" style="font-weight:bold;font-size:18px">
+                                            <img src="~/Content/img/yorum.png" height="70" style="margin-right:10px" alt="">
+                                            @item.yorumyapanid
+                                            @{
+                                                if (item.yorumyapanid == ViewBag.Ekleyen)
+                                                {
+                                            <a style="color:indianred;font-size:12px">-Bu Sicil Kaydını Açan Kişi</a>
+                                                }
+                                            }
+                                        </div>
+                                        <div class="rev-text" style="margin-top:10px">
+                                            <p>
+                                                @item.yorum
+                                            </p>
+                                        </div>
+                                        @{
+                                            if (item.yorumyapanid == HttpContext.Current.User.Identity.Name.ToString())
+                                            {
+                                                <a style="float:left;cursor:pointer;font-weight:bold;color:indianred">Yorumu Sil</a>
+                                            }
+                                        }
+                                        <a style="float:right;cursor:pointer;font-weight:bold">Bu Yorumu Şikayet Et</a>
+                                    </div>
+                                </div>
+                                <hr />
+                            }
+                        }
+
+                    }
+
+                </div>
+                <hr>
+                @using (Html.BeginForm("YorumYap", "Sicil"))
+                {
+                    <div style="border-radius:20px" class="box_general_3">
+
+                        <h4>Yorum Yap</h4>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="hidden" name="sicilid" id="sicilid" value="@ViewBag.Id" />
+
+                                <textarea class="input-group" id="yorum" name="yorum" style="width:100%;height:100px"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="text-right"><button type="submit" class="btn_1">Yorum Yap</button></div>
+                }
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+

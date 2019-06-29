@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OnlineSicilDBModelStoreContainer" CdmEntityContainer="OnlineSicilDBEntities2">
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="OnlineSicilDBModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="iletisim">
+      <EntityTypeMapping TypeName="OnlineSicilDBModel.iletisim">
+        <MappingFragment StoreEntitySet="iletisim">
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="konu" ColumnName="konu" />
+          <ScalarProperty Name="baslik" ColumnName="baslik" />
+          <ScalarProperty Name="tip" ColumnName="tip" />
+          <ScalarProperty Name="eposta" ColumnName="eposta" />
+          <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Isciler">
+      <EntityTypeMapping TypeName="OnlineSicilDBModel.Isciler">
+        <MappingFragment StoreEntitySet="Isciler">
+          <ScalarProperty Name="uyelik_tarihi" ColumnName="uyelik_tarihi" />
+          <ScalarProperty Name="dolandirici" ColumnName="dolandirici" />
+          <ScalarProperty Name="kimlikonay" ColumnName="kimlikonay" />
+          <ScalarProperty Name="goruntuleme" ColumnName="goruntuleme" />
+          <ScalarProperty Name="kadi" ColumnName="kadi" />
+          <ScalarProperty Name="bakiye" ColumnName="bakiye" />
+          <ScalarProperty Name="onay" ColumnName="onay" />
+          <ScalarProperty Name="fotograf" ColumnName="fotograf" />
+          <ScalarProperty Name="sehir" ColumnName="sehir" />
+          <ScalarProperty Name="dogumtarihi" ColumnName="dogumtarihi" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+          <ScalarProperty Name="eposta" ColumnName="eposta" />
+          <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Isverenler">
+      <EntityTypeMapping TypeName="OnlineSicilDBModel.Isverenler">
+        <MappingFragment StoreEntitySet="Isverenler">
+          <ScalarProperty Name="uyelik_tarihi" ColumnName="uyelik_tarihi" />
+          <ScalarProperty Name="onay" ColumnName="onay" />
+          <ScalarProperty Name="dolandirici" ColumnName="dolandirici" />
+          <ScalarProperty Name="kimlikonay" ColumnName="kimlikonay" />
+          <ScalarProperty Name="goruntuleme" ColumnName="goruntuleme" />
+          <ScalarProperty Name="kadi" ColumnName="kadi" />
+          <ScalarProperty Name="bakiye" ColumnName="bakiye" />
+          <ScalarProperty Name="siteadresi" ColumnName="siteadresi" />
+          <ScalarProperty Name="sehir" ColumnName="sehir" />
+          <ScalarProperty Name="firmalogo" ColumnName="firmalogo" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="firmadi" ColumnName="firmadi" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+          <ScalarProperty Name="eposta" ColumnName="eposta" />
+          <ScalarProperty Name="yetkiliadsoyad" ColumnName="yetkiliadsoyad" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SicilKayitlari">
+      <EntityTypeMapping TypeName="OnlineSicilDBModel.SicilKayitlari">
+        <MappingFragment StoreEntitySet="SicilKayitlari">
+          <ScalarProperty Name="eklenme_tarihi" ColumnName="eklenme_tarihi" />
+          <ScalarProperty Name="dolandirici" ColumnName="dolandirici" />
+          <ScalarProperty Name="kimlikonay" ColumnName="kimlikonay" />
+          <ScalarProperty Name="goruntuleme" ColumnName="goruntuleme" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="firmasitesi" ColumnName="firmasitesi" />
+          <ScalarProperty Name="firmaadresi" ColumnName="firmaadresi" />
+          <ScalarProperty Name="firmaunvani" ColumnName="firmaunvani" />
+          <ScalarProperty Name="kanit5" ColumnName="kanit5" />
+          <ScalarProperty Name="kanit4" ColumnName="kanit4" />
+          <ScalarProperty Name="kanit3" ColumnName="kanit3" />
+          <ScalarProperty Name="kanit2" ColumnName="kanit2" />
+          <ScalarProperty Name="kanit1" ColumnName="kanit1" />
+          <ScalarProperty Name="resim" ColumnName="resim" />
+          <ScalarProperty Name="dogumtarihi" ColumnName="dogumtarihi" />
+          <ScalarProperty Name="sehir" ColumnName="sehir" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="eposta" ColumnName="eposta" />
+          <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
+          <ScalarProperty Name="sicilbilgi" ColumnName="sicilbilgi" />
+          <ScalarProperty Name="ekleyenkadi" ColumnName="ekleyenkadi" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Yorumlar">
+      <EntityTypeMapping TypeName="OnlineSicilDBModel.Yorumlar">
+        <MappingFragment StoreEntitySet="Yorumlar">
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+          <ScalarProperty Name="yorum" ColumnName="yorum" />
+          <ScalarProperty Name="yorumyapanid" ColumnName="yorumyapanid" />
+          <ScalarProperty Name="sicilid" ColumnName="sicilid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

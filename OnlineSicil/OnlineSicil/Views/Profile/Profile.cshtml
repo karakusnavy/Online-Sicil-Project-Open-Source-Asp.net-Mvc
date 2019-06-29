@@ -1,0 +1,209 @@
+﻿@using OnlineSicil.Models;
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+
+<div class="container margin_60" style="margin-top:-50px">
+    <div class="row">
+        <div class="col-xl-8 col-lg-8">
+            <nav id="secondary_nav">
+                <div class="container">
+                    <h5 style="color:white">
+                        @{
+                            if (ViewBag.Firma == "" || ViewBag.Firma == null)
+                            {
+                                
+                                @ViewBag.AdSoyad
+                            }
+                            else
+                            {
+
+                                
+                                @ViewBag.Firma
+                            }
+
+                        }
+                    </h5>
+                </div>
+            </nav>
+            <div id="section_1">
+                <div class="box_general_3">
+                    <div class="profile">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-4">
+                                <figure>
+                                    @{
+                                        if (ViewBag.Resim != null)
+                                        {
+                                            <img src="~/Content/user-photos/@ViewBag.Resim" alt="" class="img-fluid">
+                                        }
+                                        else
+                                        {
+                                            <img src="~/Content/img/default.jpg" alt="" class="img-fluid">
+                                        }
+                                    }
+
+                                </figure>
+                            </div>
+                            <div class="col-lg-7 col-md-8">
+                                @{
+                                    if (ViewBag.Firma == "" || ViewBag.Firma == null)
+                                    {
+                                        <small>İşçi</small>
+                                        <h1>@ViewBag.AdSoyad</h1>
+                                    }
+                                    else
+                                    {
+
+                                        <small>İşveren</small>
+                                        <h1>@ViewBag.Firma</h1>
+                                    }
+
+                                }
+
+                                        <ul class="statistic">
+
+                                            @{
+                                                if (ViewBag.Dolandirici == "1")
+                                                {
+                                                    <li style="background-color:indianred !important">Onaylı Kötü Sicil</li>
+                                                }
+                                                if (ViewBag.Goruntuleme == null || ViewBag.Goruntuleme == "")
+                                                {
+                                                    <li>1 Görüntüleme</li>
+                                                }
+                                                else
+                                                {
+                                                    <li>@ViewBag.Goruntuleme Görüntüleme</li>
+                                                }
+                                                if (ViewBag.KimlikOnay == "1")
+                                                {
+                                                    <li style="background-color:hotpink">Kimlik Onaylı Üye</li>
+                                                }
+                                                if (ViewBag.Dolandirici == "1")
+                                                {
+                                                    <li style="background-color:indianred">Onaylı Kötü Sicil</li>
+                                                }
+                                            }
+
+                                        </ul>
+                                <ul class="contacts">
+                                    @{
+                                        if (ViewBag.Firma == "" || ViewBag.Firma == null)
+                                        {
+                                           
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <h6>Firma Yetikilisi</h6><a style="font-weight:bold !important">@ViewBag.Yetkili</a>
+                                            </li>
+                                            
+                                        }
+
+                                    }
+                                    <li>
+                                        <h6>E-Posta Adresi</h6>
+                                        @ViewBag.EPosta
+
+                                    </li>
+                                    <li>
+                                        <h6>Telefon Numarası</h6> <a>@ViewBag.Telefon</a>
+                                    </li>
+
+                                    @{
+                                        if (ViewBag.Firma == "" || ViewBag.Firma == null)
+                                        {
+                                            <li>
+                                                <h6>Şehir / Doğum Tarihi</h6> <a>@ViewBag.Sehir</a>  <a>@ViewBag.DogumTarihi</a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <h6>Firma Adresi</h6><a>@ViewBag.Adres @ViewBag.Sehir</a>
+                                            </li>
+                                            <li>
+                                                <h6>Firma Sitesi</h6><a>@ViewBag.Site</a>
+                                            </li>
+
+                                        }
+
+                                    }
+                                    <li>
+                                        <h6>Üyelik Tarihi</h6><a>@ViewBag.UyeTarihi</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    @{
+                        if (HttpContext.Current.User.Identity.Name == ViewBag.Kadi)
+                        {
+
+                            <div class="text-right"><a href="/profil/duzenle/@HttpContext.Current.User.Identity.Name" class="btn_1">Profili Düzenle</a></div>
+                        }
+                        else
+                        {
+                            <script>
+
+                            </script><br /><br />
+                            <a>Şikayet etmek için veya profili bildirmek için lütfen giriş yapınız.</a>
+                        }
+
+                    }
+
+                    <hr>
+                    <!-- /profile -->
+                  
+                    <div class="indent_title_in">
+                        <h3>Yaptığı Sicil Kayıtları</h3>
+                        <p>Samed Karakuş'un yaptığı sicil kaydı listesi.</p>
+                    </div>
+                    <div class="wrapper_indent">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Başlık</th>
+                                        <th>Detay</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        OnlineSicilDBEntities2 db = new OnlineSicilDBEntities2();
+                                        foreach (var item in db.SicilKayitlari)
+                                        {
+                                            if (item.ekleyenkadi == ViewBag.Kadi)
+                                            {
+                                                if (item.sicilbilgi == "isci")
+                                                {
+                                                    <tr>
+                                                        <td><img src="~/Content/img/isci.png" height="50px" /> @item.adsoyad</td>
+                                                        <td><a href="../../sicil/isci/@item.id" class="btn btn-success">Sicil Kaydına Git</a></td>
+                                                    </tr>
+                                                }
+                                                if (item.sicilbilgi == "isveren")
+                                                {
+                                                    <tr>
+                                                        <td><img src="~/Content/img/isveren.png" height="50px" /> @item.firmaunvani</td>
+                                                        <td><a href="../../sicil/isveren/@item.id" class="btn btn-success">Sicil Kaydına Git</a></td>
+                                                    </tr>
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>                
+            </div>            
+            
+            </div>
+        </div>
+    </div>

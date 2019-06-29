@@ -1,0 +1,85 @@
+﻿@using OnlineSicil.Models
+@{
+    ViewBag.Title = "Iletisim";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+<div class="container ">
+    <div class="row">
+        <aside class="col-lg-3 col-md-4">
+            <div id="contact_info">
+                <h3>E-Posta Bilgilerimiz</h3>
+                <p>
+                    Aşağıdaki mail adresleri ile bize mail atmanız mümkün.<br>
+                    <a href="">bilgi@onlinesicil.com</a>
+                    <a href="">onerivesikayet@onlinesicil.com</a>
+                    <a href="">sponsor@onlinesicil.com</a>
+                </p>              
+            </div>
+        </aside>        
+        <div class=" col-lg-8 col-md-8 ml-auto">
+            <div class="box_general">
+                <h3>Bizimle İletişime Geç</h3>
+                <p>
+                    Aşağıdaki formu doldurarak bizimle hızlı bir şekilde iletişime geçebilirsiniz. Göndermiş olduğunuz
+                    bilgilere göre en geç 3 iş günü içerisinde dönüş yapılmaktadır.
+                </p>
+                <p style="color:black;font-weight:bold">
+                    @ViewBag.Hata
+                </p>
+                <div>
+                    <div id="message-contact"></div>
+                    <form method="post" action="">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="adsoyad" placeholder="İsim Soyisim">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control"  name="eposta" placeholder="E-Posta Adresiniz">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <select name="tip" class="form-control">
+                                        <option>Departman</option>
+                                        <option>Öneri & Şikayet</option>
+                                        <option>Sicil Kayıtları</option>
+                                        <option>Sponsorluk</option>
+                                        <option>Geliştirme</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="number" id="phone_contact" name="telefon" class="form-control" placeholder="Telefon Numaranız">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" id="phone_contact" name="baslik" class="form-control" placeholder="Konu Başlığı">
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea rows="5" id="message_contact" name="konu" class="form-control" style="height:100px;" placeholder="Mesajınızı buraya yazınız"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <input type="submit" value="Gönder" class="btn_1 add_top_20" id="submit-contact">
+                    </form>
+                </div>
+            </div>
+        </div>        
+    </div>    
+</div>
+

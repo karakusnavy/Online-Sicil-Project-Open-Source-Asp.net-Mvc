@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OnlineSicilDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="code" />
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="OnlineSicilDBEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="City" EntityType="Self.City" />
+    <EntitySet Name="iletisim" EntityType="OnlineSicilDBModel.iletisim" />
+    <EntitySet Name="Isciler" EntityType="OnlineSicilDBModel.Isciler" />
+    <EntitySet Name="Isverenler" EntityType="OnlineSicilDBModel.Isverenler" />
+    <EntitySet Name="SicilKayitlari" EntityType="OnlineSicilDBModel.SicilKayitlari" />
+    <EntitySet Name="Yorumlar" EntityType="OnlineSicilDBModel.Yorumlar" />
+  </EntityContainer>
+  <EntityType Name="iletisim">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adsoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="baslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="konu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Isciler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adsoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dogumtarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sehir" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="fotograf" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="onay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="bakiye" Type="Int32" />
+    <Property Name="kadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="goruntuleme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kimlikonay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dolandirici" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="uyelik_tarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Isverenler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="yetkiliadsoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="firmadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="firmalogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sehir" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="siteadresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="bakiye" Type="Int32" />
+    <Property Name="kadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="goruntuleme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kimlikonay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dolandirici" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="onay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="uyelik_tarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SicilKayitlari">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ekleyenkadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sicilbilgi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="adsoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sehir" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dogumtarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="resim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kanit1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kanit2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kanit3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kanit4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kanit5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="firmaunvani" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="firmaadresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="firmasitesi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="goruntuleme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kimlikonay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dolandirici" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="eklenme_tarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Yorumlar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sicilid" Type="Int32" />
+    <Property Name="yorumyapanid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="yorum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tarih" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

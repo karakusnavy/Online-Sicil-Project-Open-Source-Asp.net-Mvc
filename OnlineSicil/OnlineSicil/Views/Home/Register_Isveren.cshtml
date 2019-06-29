@@ -1,0 +1,155 @@
+﻿@model OnlineSicil.Models.Isverenler
+@{
+    ViewBag.Title = "Register_Isveren";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+
+
+<div style="margin-top:-20px" id="hero_register">
+    <div class="container margin_120_95">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1>Çözüm Online Sicil'de!</h1>
+                <p class="lead">Online Sicil olarak işçi veya işveren farketmeksizin yaşadığınız mağduriyetin başka kimsenin yaşamasını istemiyorsanız hemen kayıt olun ve sicil oluşturun.</p>
+                <div class="box_feat_2" >
+                    
+                    <h3><img src="~/Content/img/iconbaby.png" height="40px" /> Kısa Süreliğine Ücretsiz!</h3>
+                    <p>Sicil kaydı oluşturmak ve şikayet konusu açmak kısa süreliğine ücretsiz. Hemen bu avantajdan yararlanmak için kayıt ol.</p>
+                </div>
+            </div>
+            <!-- /col -->
+            <style>
+
+                .maycart {
+                    background-color: white !important;
+                    color: #363768;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 20px;
+                    font-weight: bold;
+                    border-radius: 10px;
+                    font-size: 18px;
+                }
+
+                    .maycart:hover {
+                        text-decoration: underline;
+                        cursor: pointer;
+                        color: black;
+                    }
+
+                .geributton {
+                    background-color: #363768;
+                    padding: 13px;
+                    border-radius: 10px;
+                    width: 70px;
+                    color: white;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+
+                    .geributton:hover {
+                        color: black;
+                        background-color: white;
+                        cursor: pointer;
+                    }
+            </style>
+          
+            <div class="col-lg-5 ml-auto">
+
+               
+                <h3 style="color:white;margin:5px;display:block" id="degisken">Yeni İşveren Kaydı</h3>
+            
+                @* İşveren Kaydı Başlangıç *@
+
+                <div class="box_form" id="isverenkaydi" style="display:block">
+                    <h5 style="color:red">@ViewBag.Hata</h5>
+                    <div class="geributton" onclick="window.location='/register'">
+                        < Geri
+                    </div>
+                    @using (Html.BeginForm("IsciKaydi", "HomeController", FormMethod.Post))
+                    {
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                <center>
+                                    <img src="~/Content/img/isveren.png" style="height:180px" />
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.yetkiliadsoyad, new { @class = "form-control", @placeholder = "Yetkili Ad Soyad" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.eposta, new { @class = "form-control", @placeholder = "E-Posta" })
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.sifre, new { @class = "form-control", @placeholder = "Şifre", type = "password" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.kadi, new { @class = "form-control", @placeholder = "Kullanıcı Adı" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.DropDownListFor(x => x.sehir, new SelectList(ViewBag.Sehirler, "code", "name"), new { @class = "form-control", @placeholder = "Şehir Seçiniz" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.telefon, new { @class = "form-control", @placeholder = "Telefon" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.firmadi, new { @class = "form-control", @placeholder = "Firma Adı" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.adres, new { @class = "form-control", @placeholder = "Firma Adresi" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.siteadresi, new { @class = "form-control", @placeholder = "Site Adresi" })
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <p class="text-center add_top_30"><input type="submit" class="btn_1" value="Kayıt Ol"></p>
+                        <div class="text-center"><small>Kayıt olduktan sonra <strong>Kullanıcı Sözleşmesi</strong> ve <strong>Gizlilik Politikası</strong> belgelerini okumuş sayılırsınız.</small></div>
+                    }
+                </div>
+
+                @*İşveren Kaydı Bitiş *@
+
+
+                <!-- /box_form -->
+            </div>
+            <!-- /col -->
+        </div>
+
+    </div>
+    <!-- /container -->
+</div>
+<!-- /hero_register -->

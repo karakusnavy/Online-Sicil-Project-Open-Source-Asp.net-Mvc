@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @{
+        if (ViewBag.Baslik != null)
+        {
+            <title>@ViewBag.Baslik - Online Sicil - Sicil Kaydı Platformu</title>
+            <meta name="description" content="@ViewBag.Baslik, @ViewBag.Baslik Dolandırıcı mı?,@ViewBag.Baslik Kimdir?, Online Sicil, Sicil Online, İşveren Sicil, İşçi Sicil" />
+        }
+        else
+        {
+            <title>Online Sicil - İşçi ve İşveren Sicil Kaydı Platformu</title>
+            <meta name="description" content="Online Sicil, Sicil Online, İşveren Sicil, İşçi Sicil, Sicil Kaydı, Sicil Platformu" />
+        }
+    }
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/menu.css" rel="stylesheet" />
+    <link href="~/Content/vendors.css" rel="stylesheet" />
+    <link href="~/Content/all_icons_min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+    <div id="preloader" class="Fixed">
+        <div data-loader="circle-side"></div>
+    </div>
+    <div id="page">
+        <header class="header_sticky">
+            <a href="#menu" class="btn_mobile">
+                <div class="hamburger hamburger--spin" id="hamburger">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </div>
+            </a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-6">
+                        <div id="logo_home">
+                            <img onclick="window.location='/'" src="~/Content/img/logo.png" style="cursor:pointer" data-retina="true" alt="" width="163" height="36" class="img-fluid">Beta v0.3
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-6">
+                        <style>
+                            ul li span a .ortala i{
+                                margin-right:5px !important;  
+                            }
+                        </style>
+                        <nav id="menu" class="main-menu" >
+                            <ul style="margin-top:-50px">
+                                <li>
+                                    <span><a href="/"><div class="ortala"><i style="font-size:21px;" class="fa fa-home"></i> Anasayfa</div></a></span>
+                                </li>
+                                @{
+                                    if (HttpContext.Current.User.Identity.Name.Length <= 3)
+                                    {
+                                        <li>
+                                            <span><a href="/register"><div class="ortala"><i style="font-size:21px;" class="fa fa-user-plus"></i> Kayıt Ol</div></a></span>
+                                        </li>
+                                        <li>
+                                            <span><a href="/login"><div class="ortala"><i style="font-size:21px;" class="fas fa-user-circle"></i> Giriş Yap</div></a></span>
+                                        </li>
+                                    }
+                                    else
+                                    {
+
+                                        
+                                        
+                                        
+                                        <li>
+                                            <span><a href="/profil/@HttpContext.Current.User.Identity.Name"><div class="ortala"><i style="font-size:21px;" class="fas fa-user-circle"></i> Profil</div></a></span>
+                                        </li>
+                                        <li>
+                                            <span><a href="/quit"><div class="ortala"><i style="font-size:21px;" class="fas fa-sign-out-alt"></i> Çıkış Yap</div></a></span>
+                                        </li>
+                                    }
+                                }
+
+                                <li><span><a href="../../../../sicil-bildir"><i class="bildirbutton">Sicil Bildir !</i></a></span></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <style>
+            .main-menu li span a l {
+                background-color: #363768 !important;
+                padding-right:8px;
+                padding-left:8px;
+                padding-top:2px;
+                padding-bottom:2px;
+                border-radius:50px;
+                color:white;
+            }
+            
+            .main-menu li span a .bildirbutton {
+                background-color: #363768;
+                padding: 10px;
+                color: white;
+                border-radius: 20px;
+            }
+
+                .main-menu li span a .bildirbutton:hover {
+                    background-color: #363744;
+                    padding: 10px;
+                    color: white;
+                    border-radius: 20px;
+                }
+
+                .ortala{
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                }
+            
+        </style>
+        <main>

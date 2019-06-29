@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OnlineSicilDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OnlineSicilDB.dbo.City' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="code" />
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="code" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Isciler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adsoyad" Type="nvarchar(max)" />
+    <Property Name="eposta" Type="nvarchar(max)" />
+    <Property Name="sifre" Type="nvarchar(max)" />
+    <Property Name="telefon" Type="nvarchar(max)" />
+    <Property Name="dogumtarihi" Type="nvarchar(max)" />
+    <Property Name="sehir" Type="nvarchar(max)" />
+    <Property Name="fotograf" Type="nvarchar(max)" />
+    <Property Name="onay" Type="nvarchar(max)" />
+    <Property Name="bakiye" Type="int" />
+    <Property Name="kadi" Type="nvarchar(max)" />
+    <Property Name="goruntuleme" Type="nvarchar(max)" />
+    <Property Name="kimlikonay" Type="nvarchar(max)" />
+    <Property Name="dolandirici" Type="nvarchar(max)" />
+    <Property Name="uyelik_tarihi" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Isverenler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="yetkiliadsoyad" Type="nvarchar(max)" />
+    <Property Name="eposta" Type="nvarchar(max)" />
+    <Property Name="sifre" Type="nvarchar(max)" />
+    <Property Name="telefon" Type="nvarchar(max)" />
+    <Property Name="firmadi" Type="nvarchar(max)" />
+    <Property Name="adres" Type="nvarchar(max)" />
+    <Property Name="firmalogo" Type="nvarchar(max)" />
+    <Property Name="sehir" Type="nvarchar(max)" />
+    <Property Name="siteadresi" Type="nvarchar(max)" />
+    <Property Name="bakiye" Type="int" />
+    <Property Name="kadi" Type="nvarchar(max)" />
+    <Property Name="goruntuleme" Type="nvarchar(max)" />
+    <Property Name="kimlikonay" Type="nvarchar(max)" />
+    <Property Name="dolandirici" Type="nvarchar(max)" />
+    <Property Name="onay" Type="nvarchar(max)" />
+    <Property Name="uyelik_tarihi" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="iletisim">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adsoyad" Type="nvarchar(max)" />
+    <Property Name="eposta" Type="nvarchar(max)" />
+    <Property Name="tip" Type="nvarchar(max)" />
+    <Property Name="baslik" Type="nvarchar(max)" />
+    <Property Name="konu" Type="nvarchar(max)" />
+    <Property Name="telefon" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="SicilKayitlari">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ekleyenkadi" Type="nvarchar(max)" />
+    <Property Name="sicilbilgi" Type="nvarchar(max)" />
+    <Property Name="adsoyad" Type="nvarchar(max)" />
+    <Property Name="eposta" Type="nvarchar(max)" />
+    <Property Name="telefon" Type="nvarchar(max)" />
+    <Property Name="sehir" Type="nvarchar(max)" />
+    <Property Name="dogumtarihi" Type="nvarchar(max)" />
+    <Property Name="resim" Type="nvarchar(max)" />
+    <Property Name="kanit1" Type="nvarchar(max)" />
+    <Property Name="kanit2" Type="nvarchar(max)" />
+    <Property Name="kanit3" Type="nvarchar(max)" />
+    <Property Name="kanit4" Type="nvarchar(max)" />
+    <Property Name="kanit5" Type="nvarchar(max)" />
+    <Property Name="firmaunvani" Type="nvarchar(max)" />
+    <Property Name="firmaadresi" Type="nvarchar(max)" />
+    <Property Name="firmasitesi" Type="nvarchar(max)" />
+    <Property Name="aciklama" Type="nvarchar(max)" />
+    <Property Name="goruntuleme" Type="nvarchar(max)" />
+    <Property Name="kimlikonay" Type="nvarchar(max)" />
+    <Property Name="dolandirici" Type="nvarchar(max)" />
+    <Property Name="eklenme_tarihi" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Yorumlar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sicilid" Type="int" />
+    <Property Name="yorumyapanid" Type="nvarchar(max)" />
+    <Property Name="yorum" Type="nvarchar(max)" />
+    <Property Name="tarih" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="OnlineSicilDBModelStoreContainer">
+    <EntitySet Name="Isciler" EntityType="Self.Isciler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Isverenler" EntityType="Self.Isverenler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="iletisim" EntityType="Self.iletisim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SicilKayitlari" EntityType="Self.SicilKayitlari" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Yorumlar" EntityType="Self.Yorumlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [City].[code] AS [code], 
+    [City].[name] AS [name]
+    FROM [dbo].[City] AS [City]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

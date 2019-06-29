@@ -1,0 +1,117 @@
+﻿@model OnlineSicil.Models.SicilKayitlari
+@{
+    ViewBag.Title = "IsciSicilBildir";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+
+<style>
+    .col-sm-6 {
+        padding: 10px
+    }
+</style>
+
+<div class="container margin_60" style="margin-top:-50px">
+    <div class="row">
+        <div class="col-xl-8 col-lg-8">
+            <nav id="secondary_nav">
+                <div class="container">
+                    <h5 style="color:white">
+                        <strong>İsci Sicil</strong> Bildirme Ekranı
+                    </h5>
+                </div>
+            </nav>
+            <div id="section_1">
+                <div class="box_general_3" style="padding-bottom:50px">
+                    @using (Html.BeginForm("IsciSicilBildir", "SicilController", FormMethod.Post, new { enctype="multipart/form-data" }))
+                    {
+
+                        <div class="profile">
+                            @{
+                                if (ViewBag.Hata == "Hata")
+                                {
+                                    <div class="alert alert-danger">@ViewBag.Sebep</div>
+                                }
+                                
+                            }
+
+                            <div class="row">
+                                <h1>Genel Bilgiler</h1>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a>İsim Soyisim</a>
+                                    @Html.TextBoxFor(x => x.adsoyad, new { @class = "form-control" })
+                                </div>
+                                <div class="col-sm-6">
+                                    <a>E-Posta Adresi</a>
+                                    @Html.TextBoxFor(x => x.eposta, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a>Telefon Numarası</a>
+                                    @Html.TextBoxFor(x => x.telefon, new { @class = "form-control" })
+                                </div>
+                                <div class="col-sm-6">
+                                    <a>Doğum Tarihi</a>
+                                    @Html.TextBoxFor(x => x.dogumtarihi, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a>Şehir</a>
+                                    @Html.DropDownListFor(x => x.sehir, new SelectList(ViewBag.Sehirler, "code", "name"), new { @class = "form-control", @placeholder = "Şehir Seçiniz" })
+                                </div>
+                                <div class="col-sm-6">
+                                    <a>Kişiyi Temsilen Resim</a>
+                                    <input type="file" name="temsiliresim" class="form-control" />
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <strong>Dikkat !</strong> Girdiğiniz bilgilerin doğruluğundan emin olunuz. Bilgilerin
+                                    yöneticiden onay alması için en az 3 tanesi boş bırakılmamalıdır.
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <hr>
+                        <!-- /profile -->
+                        <div class="box_general_3">
+                            <h3>Hakkında Açıklama</h3>
+                            <a>Lütfen kişi hakkında gerçekleşen mağduriyet olayını öz bir şekilde açıklayınız.</a>
+                            @Html.TextAreaFor(x => x.aciklama, new { @class = "form-control" })
+                        </div>
+
+
+                        <hr>
+                        <style>
+                            .abc {
+                                margin: 10px;
+                            }
+                        </style>
+                        <div class="box_general_3">
+                            <h3>Resimler / Kanıtlar (5 Adet Resim Hakkınız Var)</h3>
+                            <input type="file" name="kanit1" class="form-control abc" />
+                            <input type="file" name="kanit2" class="form-control abc" />
+                            <input type="file" name="kanit3" class="form-control abc" />
+                            <input type="file" name="kanit4" class="form-control abc" />
+                            <input type="file" name="kanit5" class="form-control abc" />
+                        </div>
+
+                        <button type="submit" class="btn btn-success float-lg-right">Sicil'i Bildir !</button>
+                                }
+                    </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+

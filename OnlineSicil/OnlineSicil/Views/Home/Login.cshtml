@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+
+<div style="margin-top:-100px" class="bg_color_2">
+    <div class="container margin_60_35">
+        <div id="login-2">
+            <h1>Giriş Yap</h1>
+           <style>
+               .kutucuk{
+                   font-weight:bold;
+                  margin:20px;
+                  background-color:lightgray;
+                  padding:10px;
+                  border-radius:20px;
+                  color:black;
+               }
+               .kutucuk:hover{
+                   background-color:white;
+                   cursor:pointer;
+                   color:red;
+               }
+           </style>
+                <div class="box_form clearfix">
+                    <div class="box_login" style="margin-top:-30px">
+                        <div class="kutucuk" onclick="window.location='login/isci'">
+                           <img src="~/Content/img/isci.png" height="90" /> İşçi Girişi
+                        </div>
+                        <div class="kutucuk" onclick="window.location='login/isveren'">
+                            <img src="~/Content/img/isveren.png" height="90" /> İşveren Girişi
+                        </div>
+                    </div>
+                    <div class="box_login last">
+                        Giriş Yapabilmek İçin Lütfen Sol Taraftan Seçim Yapınız
+                    </div>
+                </div>
+            
+                <p class="text-center link_bright">Henüz üye olmadın mı? <a href="/register"><strong>Hemen Üye Ol!</strong></a></p>
+            </div>
+        <!-- /login -->
+    </div>
+</div>

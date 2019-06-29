@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OnlineSicilDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OnlineSicilDB.dbo.City' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="code" />
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="code" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Isciler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adsoyad" Type="nvarchar(max)" />
+          <Property Name="eposta" Type="nvarchar(max)" />
+          <Property Name="sifre" Type="nvarchar(max)" />
+          <Property Name="telefon" Type="nvarchar(max)" />
+          <Property Name="dogumtarihi" Type="nvarchar(max)" />
+          <Property Name="sehir" Type="nvarchar(max)" />
+          <Property Name="fotograf" Type="nvarchar(max)" />
+          <Property Name="onay" Type="nvarchar(max)" />
+          <Property Name="bakiye" Type="int" />
+          <Property Name="kadi" Type="nvarchar(max)" />
+          <Property Name="goruntuleme" Type="nvarchar(max)" />
+          <Property Name="kimlikonay" Type="nvarchar(max)" />
+          <Property Name="dolandirici" Type="nvarchar(max)" />
+          <Property Name="uyelik_tarihi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Isverenler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="yetkiliadsoyad" Type="nvarchar(max)" />
+          <Property Name="eposta" Type="nvarchar(max)" />
+          <Property Name="sifre" Type="nvarchar(max)" />
+          <Property Name="telefon" Type="nvarchar(max)" />
+          <Property Name="firmadi" Type="nvarchar(max)" />
+          <Property Name="adres" Type="nvarchar(max)" />
+          <Property Name="firmalogo" Type="nvarchar(max)" />
+          <Property Name="sehir" Type="nvarchar(max)" />
+          <Property Name="siteadresi" Type="nvarchar(max)" />
+          <Property Name="bakiye" Type="int" />
+          <Property Name="kadi" Type="nvarchar(max)" />
+          <Property Name="goruntuleme" Type="nvarchar(max)" />
+          <Property Name="kimlikonay" Type="nvarchar(max)" />
+          <Property Name="dolandirici" Type="nvarchar(max)" />
+          <Property Name="onay" Type="nvarchar(max)" />
+          <Property Name="uyelik_tarihi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="iletisim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adsoyad" Type="nvarchar(max)" />
+          <Property Name="eposta" Type="nvarchar(max)" />
+          <Property Name="tip" Type="nvarchar(max)" />
+          <Property Name="baslik" Type="nvarchar(max)" />
+          <Property Name="konu" Type="nvarchar(max)" />
+          <Property Name="telefon" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SicilKayitlari">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ekleyenkadi" Type="nvarchar(max)" />
+          <Property Name="sicilbilgi" Type="nvarchar(max)" />
+          <Property Name="adsoyad" Type="nvarchar(max)" />
+          <Property Name="eposta" Type="nvarchar(max)" />
+          <Property Name="telefon" Type="nvarchar(max)" />
+          <Property Name="sehir" Type="nvarchar(max)" />
+          <Property Name="dogumtarihi" Type="nvarchar(max)" />
+          <Property Name="resim" Type="nvarchar(max)" />
+          <Property Name="kanit1" Type="nvarchar(max)" />
+          <Property Name="kanit2" Type="nvarchar(max)" />
+          <Property Name="kanit3" Type="nvarchar(max)" />
+          <Property Name="kanit4" Type="nvarchar(max)" />
+          <Property Name="kanit5" Type="nvarchar(max)" />
+          <Property Name="firmaunvani" Type="nvarchar(max)" />
+          <Property Name="firmaadresi" Type="nvarchar(max)" />
+          <Property Name="firmasitesi" Type="nvarchar(max)" />
+          <Property Name="aciklama" Type="nvarchar(max)" />
+          <Property Name="goruntuleme" Type="nvarchar(max)" />
+          <Property Name="kimlikonay" Type="nvarchar(max)" />
+          <Property Name="dolandirici" Type="nvarchar(max)" />
+          <Property Name="eklenme_tarihi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Yorumlar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sicilid" Type="int" />
+          <Property Name="yorumyapanid" Type="nvarchar(max)" />
+          <Property Name="yorum" Type="nvarchar(max)" />
+          <Property Name="tarih" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="OnlineSicilDBModelStoreContainer">
+          <EntitySet Name="Isciler" EntityType="Self.Isciler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Isverenler" EntityType="Self.Isverenler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="iletisim" EntityType="Self.iletisim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SicilKayitlari" EntityType="Self.SicilKayitlari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yorumlar" EntityType="Self.Yorumlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [City].[code] AS [code], 
+    [City].[name] AS [name]
+    FROM [dbo].[City] AS [City]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OnlineSicilDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="code" />
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="OnlineSicilDBEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="iletisim" EntityType="OnlineSicilDBModel.iletisim" />
+          <EntitySet Name="Isciler" EntityType="OnlineSicilDBModel.Isciler" />
+          <EntitySet Name="Isverenler" EntityType="OnlineSicilDBModel.Isverenler" />
+          <EntitySet Name="SicilKayitlari" EntityType="OnlineSicilDBModel.SicilKayitlari" />
+          <EntitySet Name="Yorumlar" EntityType="OnlineSicilDBModel.Yorumlar" />
+        </EntityContainer>
+        <EntityType Name="iletisim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adsoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="baslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="konu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Isciler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adsoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dogumtarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sehir" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fotograf" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="onay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bakiye" Type="Int32" />
+          <Property Name="kadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="goruntuleme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kimlikonay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dolandirici" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uyelik_tarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Isverenler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="yetkiliadsoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="firmadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="firmalogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sehir" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="siteadresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bakiye" Type="Int32" />
+          <Property Name="kadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="goruntuleme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kimlikonay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dolandirici" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="onay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uyelik_tarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SicilKayitlari">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ekleyenkadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sicilbilgi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="adsoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sehir" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dogumtarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="resim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kanit1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kanit2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kanit3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kanit4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kanit5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="firmaunvani" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="firmaadresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="firmasitesi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="goruntuleme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kimlikonay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dolandirici" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="eklenme_tarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Yorumlar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sicilid" Type="Int32" />
+          <Property Name="yorumyapanid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="yorum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tarih" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OnlineSicilDBModelStoreContainer" CdmEntityContainer="OnlineSicilDBEntities2">
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="OnlineSicilDBModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="iletisim">
+            <EntityTypeMapping TypeName="OnlineSicilDBModel.iletisim">
+              <MappingFragment StoreEntitySet="iletisim">
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="konu" ColumnName="konu" />
+                <ScalarProperty Name="baslik" ColumnName="baslik" />
+                <ScalarProperty Name="tip" ColumnName="tip" />
+                <ScalarProperty Name="eposta" ColumnName="eposta" />
+                <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Isciler">
+            <EntityTypeMapping TypeName="OnlineSicilDBModel.Isciler">
+              <MappingFragment StoreEntitySet="Isciler">
+                <ScalarProperty Name="uyelik_tarihi" ColumnName="uyelik_tarihi" />
+                <ScalarProperty Name="dolandirici" ColumnName="dolandirici" />
+                <ScalarProperty Name="kimlikonay" ColumnName="kimlikonay" />
+                <ScalarProperty Name="goruntuleme" ColumnName="goruntuleme" />
+                <ScalarProperty Name="kadi" ColumnName="kadi" />
+                <ScalarProperty Name="bakiye" ColumnName="bakiye" />
+                <ScalarProperty Name="onay" ColumnName="onay" />
+                <ScalarProperty Name="fotograf" ColumnName="fotograf" />
+                <ScalarProperty Name="sehir" ColumnName="sehir" />
+                <ScalarProperty Name="dogumtarihi" ColumnName="dogumtarihi" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="eposta" ColumnName="eposta" />
+                <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Isverenler">
+            <EntityTypeMapping TypeName="OnlineSicilDBModel.Isverenler">
+              <MappingFragment StoreEntitySet="Isverenler">
+                <ScalarProperty Name="uyelik_tarihi" ColumnName="uyelik_tarihi" />
+                <ScalarProperty Name="onay" ColumnName="onay" />
+                <ScalarProperty Name="dolandirici" ColumnName="dolandirici" />
+                <ScalarProperty Name="kimlikonay" ColumnName="kimlikonay" />
+                <ScalarProperty Name="goruntuleme" ColumnName="goruntuleme" />
+                <ScalarProperty Name="kadi" ColumnName="kadi" />
+                <ScalarProperty Name="bakiye" ColumnName="bakiye" />
+                <ScalarProperty Name="siteadresi" ColumnName="siteadresi" />
+                <ScalarProperty Name="sehir" ColumnName="sehir" />
+                <ScalarProperty Name="firmalogo" ColumnName="firmalogo" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="firmadi" ColumnName="firmadi" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="eposta" ColumnName="eposta" />
+                <ScalarProperty Name="yetkiliadsoyad" ColumnName="yetkiliadsoyad" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SicilKayitlari">
+            <EntityTypeMapping TypeName="OnlineSicilDBModel.SicilKayitlari">
+              <MappingFragment StoreEntitySet="SicilKayitlari">
+                <ScalarProperty Name="eklenme_tarihi" ColumnName="eklenme_tarihi" />
+                <ScalarProperty Name="dolandirici" ColumnName="dolandirici" />
+                <ScalarProperty Name="kimlikonay" ColumnName="kimlikonay" />
+                <ScalarProperty Name="goruntuleme" ColumnName="goruntuleme" />
+                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+                <ScalarProperty Name="firmasitesi" ColumnName="firmasitesi" />
+                <ScalarProperty Name="firmaadresi" ColumnName="firmaadresi" />
+                <ScalarProperty Name="firmaunvani" ColumnName="firmaunvani" />
+                <ScalarProperty Name="kanit5" ColumnName="kanit5" />
+                <ScalarProperty Name="kanit4" ColumnName="kanit4" />
+                <ScalarProperty Name="kanit3" ColumnName="kanit3" />
+                <ScalarProperty Name="kanit2" ColumnName="kanit2" />
+                <ScalarProperty Name="kanit1" ColumnName="kanit1" />
+                <ScalarProperty Name="resim" ColumnName="resim" />
+                <ScalarProperty Name="dogumtarihi" ColumnName="dogumtarihi" />
+                <ScalarProperty Name="sehir" ColumnName="sehir" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="eposta" ColumnName="eposta" />
+                <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
+                <ScalarProperty Name="sicilbilgi" ColumnName="sicilbilgi" />
+                <ScalarProperty Name="ekleyenkadi" ColumnName="ekleyenkadi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yorumlar">
+            <EntityTypeMapping TypeName="OnlineSicilDBModel.Yorumlar">
+              <MappingFragment StoreEntitySet="Yorumlar">
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="yorum" ColumnName="yorum" />
+                <ScalarProperty Name="yorumyapanid" ColumnName="yorumyapanid" />
+                <ScalarProperty Name="sicilid" ColumnName="sicilid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

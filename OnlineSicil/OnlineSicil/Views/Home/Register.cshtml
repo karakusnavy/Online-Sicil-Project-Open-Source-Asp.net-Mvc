@@ -1,0 +1,77 @@
+﻿@model OnlineSicil.Models.Isciler
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+
+<div style="margin-top:-20px" id="hero_register">
+    <div class="container margin_120_95">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1>Çözüm Online Sicil'de!</h1>
+                <p class="lead">Online Sicil olarak işçi veya işveren farketmeksizin yaşadığınız mağduriyetin başka kimsenin yaşamasını istemiyorsanız hemen kayıt olun ve sicil oluşturun.</p>
+                <div class="box_feat_2">
+                    <h3><img src="~/Content/img/iconbaby.png" height="40px" /> Kısa Süreliğine Ücretsiz!</h3>
+                    <p>Sicil kaydı oluşturmak ve şikayet konusu açmak kısa süreliğine ücretsiz. Hemen bu avantajdan yararlanmak için kayıt ol.</p>
+                </div>               
+            </div>
+            <!-- /col -->
+            <style>
+
+                .maycart {
+                    background-color: white !important;
+                    
+                    color: #363768;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 20px;
+                    font-weight: bold;
+                    border-radius: 10px;
+                    font-size: 18px;
+                }
+                .maycart:hover{
+                    text-decoration:underline;
+                    cursor:pointer;
+                    color:black;
+                }
+                .geributton {
+                    background-color: #363768;
+                    padding:13px;
+                    border-radius:10px;
+                    width:70px;
+                    color:white;
+                    font-weight:bold;
+                    margin-bottom:10px;
+                }
+                    .geributton:hover {
+                        color: black;
+                        background-color: white;
+                        cursor: pointer;
+                        
+                    }
+            </style>
+      
+            <div class="col-lg-5 ml-auto">
+                
+                <div class="isci-isveren-secimi" style="display:block" id="secim">
+                    <h3 style="color:white">Lütfen Seçim Yapınız</h3>
+                    <div class="maycart" onclick="window.location='/isci'">
+                        <img src="~/Content/img/isci.png" style="height:80px" /> > İşçi Üye Kaydı
+                    </div>
+                    <br />
+                    <div class="maycart" onclick="window.location='/isveren'">
+                        <img src="~/Content/img/isveren.png" style="height:80px" /> > İşveren Üye Kaydı
+                    </div>
+                </div>
+                <h3 style="color:white;margin:5px;display:none" id="degisken"></h3>
+              
+
+                <!-- /box_form -->
+            </div>
+            <!-- /col -->
+        </div>
+        
+    </div>
+    <!-- /container -->
+</div>
+<!-- /hero_register -->

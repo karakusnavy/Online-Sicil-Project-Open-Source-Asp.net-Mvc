@@ -1,0 +1,74 @@
+﻿ 
+@{
+    ViewBag.Title = "Sss";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+
+<style>
+    .sss-title {
+        background-color: #363768;
+        color:white;
+        font-size:17px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding:10px;
+        border-radius:10px;
+        margin-top:10px;
+        cursor:pointer;
+    }
+    .cevap {
+        background-color: azure;
+        padding: 10px;
+        color: #363768;
+        border-radius:20px;
+        margin-top:5px;
+        display:none;
+    }
+    .sss-title:hover{
+        color:yellow;
+        
+    }
+    
+</style>
+
+
+<div class="container" style="padding:20px !important">
+    <div class="sss-title" onclick="Samet(1)">
+        > Online Sicil Nedir ?
+        <div class="cevap" id="1">
+            Deneme
+        </div>
+    </div>
+    <div class="sss-title" onclick="Samet(2)">
+        > Neden Sicil Kaydı Açmalıyım ?
+        <div class="cevap" id="2">
+            Deneme
+        </div>
+    </div>
+    <div class="sss-title" onclick="Samet(3)">
+        > Sicil Kaydını Geri Silebilir miyim?
+        <div class="cevap" id="3">
+            Deneme
+        </div>
+    </div>
+    <div class="sss-title" onclick="Samet(4)">
+        > Nasıl Üye Olabilirim ?
+        <div class="cevap" id="4">
+            Deneme
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    function Samet(id) {
+        document.getElementById(id).style.display = "block";
+        for (var i = 1; i <= 4; i++) {
+            if (i == id) {
+                //Kod bahane
+            }
+            else {
+                document.getElementById(i).style.display = "none";
+            }
+        }
+    }
+</script>

@@ -1,0 +1,139 @@
+﻿@{
+    Layout = null;
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+
+            <script>
+                var tur="isci";
+                function TurSec(bilgi) {
+                    
+                    tur = bilgi;
+                    if (bilgi=="isci") {
+                        document.getElementById("isci-radio").style.color = "yellow";
+                        document.getElementById("isveren-radio").style.color = "white";
+                        document.getElementById("kullanici-radio").style.color = "white";
+                    }
+                    if (bilgi == "isveren") {
+                        document.getElementById("isci-radio").style.color = "white";
+                        document.getElementById("isveren-radio").style.color = "yellow";
+                        document.getElementById("kullanici-radio").style.color = "white";
+                    }
+                    if (bilgi == "kullanici") {
+                        document.getElementById("isci-radio").style.color = "white";
+                        document.getElementById("isveren-radio").style.color = "white";
+                        document.getElementById("kullanici-radio").style.color = "yellow";
+                    }
+                    
+                }
+                function AramaYap() {
+                    
+                    if (document.getElementById("aramacubugu").value == null || document.getElementById("aramacubugu").value == "") {
+                        alert("Arama Çubuğu Boş !")
+                        return;                        
+                    }
+                    if (tur == "isci") {
+                        window.location = "sicil-ara/isci/" + document.getElementById("aramacubugu").value;
+                        
+                    }
+                    if (tur == "isveren") {
+                        window.location = "sicil-ara/isveren/" + document.getElementById("aramacubugu").value;
+                    }
+                    if (tur == "kullanici") {
+                        window.location = "profil/" + document.getElementById("aramacubugu").value;
+                    }
+                }
+            </script>
+
+            <div style="margin-top:-20px" class="hero_home version_1">
+                <div class="content">
+                    <h3 id="babafingo">Sicil Kaydı Ara!</h3>
+                    <p>
+                        Hemen online sicil kaydı ara, işe girecekler veya işe alacaklar mağdur olmasın.
+                    </p>                                       
+                        <div id="custom-search-input">
+                            <div class="input-group">
+                                <input type="text" class="search-query" id="aramacubugu" placeholder="Ad Soyad, Firma İsmi veya Kullanıcı Adı Giriniz">
+                                <input onclick="AramaYap()" type="submit" class="btn_search" value="ARA">
+                            </div>
+                            <ul>
+                                <li onclick="TurSec('isci')"  id="isci-radio" style="color:yellow;">
+                                    <input type="radio"  name="radio_search" >
+                                    <label for="doctor">İşçi Ara</label>
+                                </li>
+                                <li onclick="TurSec('isveren')" id="isveren-radio" >
+                                    <input type="radio"  name="radio_search" >
+                                    <label for="clinic">İşveren Ara</label>
+                                </li>
+                                <li onclick="TurSec('kullanici')" id="kullanici-radio">
+                                    <input type="radio" name="radio_searcha" >
+                                    <label for="clinica">Kullanıcı Ara</label>
+                                </li>                               
+                            </ul>
+                        </div>                    
+                </div>
+            </div>            
+            <style>
+                .owl-carousel .item i
+                {
+                    margin-top:10px !important;
+                    background-color:lightgray;
+                    color:darkslateblue;
+                    padding:20px;
+                }
+                    .owl-carousel .item i:hover {
+                        margin-top: 10px !important;
+                        background-color: #363768;
+                        color: white;
+                        padding: 20px;
+                        cursor: pointer;
+                    }
+            </style>
+                  
+            <div class="container margin_120_95">
+                <div class="main_title">
+                    <h2>Online <strong>Sicil Bildirme</strong> Nasıl Yapılır?</h2>
+                    <p>Online olarak sicil bildirme platformuna kayıt olmak veya giriş yapmak çok kolay. Hemen aşağıdaki adımları uygulayarak <strong>Sicil Bildirin</strong></p>
+                </div>
+                <div class="row add_bottom_30">
+                    <div class="col-lg-4">
+                        <div class="box_feat" id="icon_1">                            
+                            <span></span>
+                            <h3>KAYIT OL</h3>
+                            <p>Hemen kayıt olun veya daha giriş yapın. Ardından <strong>Sicil Bildir</strong> butonuna tıklayın.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box_feat" id="icon_2">
+                            <span></span>
+                            <h3>FORMU DOLDUR</h3>
+                            <p>Kanıtlarıyla birlikte formu işçi veya işveren olarak doldurun ve onaylanma sürecine gönderin.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box_feat" id="icon_3">
+                            <h3>ONAYLI SİCİL</h3>
+                            <p>Yöneticilerimiz tarafından uygun görülen sicil kayıtları yayımlanmaya hak kazandı.</p>
+                        </div>
+                    </div>
+                </div>                                
+            </div>            
+            <div id="app_section">
+                <div class="container">
+                    <div class="row justify-content-around">
+                        <div class="col-md-5">
+                            <p><img src="~/Content/img/telefon.svg" alt="" class="img-fluid" width="500" height="433"></p>
+                        </div>
+                        <div class="col-md-6">
+                            <small>Online Sicil Platformu Responsive</small>
+                            <h3>Hemen <strong>Onlice Sicil</strong> Bildir!</h3>
+                            <p class="lead">Online Sicil bildir ve mağdur olduğun olaydan başkalarıda mağdur olmasın.</p>
+                            <button class="btn btn-info" " onclick="window.location = 'sss'" >Sıkça Sorular Sorular</button>
+                            <button class="btn btn-light" onclick="window.location = 'sicil-bildir'" >Sicil Bildir !</button>
+                            <div class="app_buttons wow" data-wow-offset="100">
+
+                            </div>
+                        </div>
+                    </div>                    
+                </div>                
+            </div>            
+       

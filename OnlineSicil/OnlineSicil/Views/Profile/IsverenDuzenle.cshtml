@@ -1,0 +1,320 @@
+﻿@model OnlineSicil.Models.Isciler
+@using  OnlineSicil.Models
+@{
+    ViewBag.Title = "IsverenDuzenle";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+
+
+<div class="container margin_60">
+    <div class="row">
+
+        <aside class="col-xl-3 col-lg-4" id="sidebar">
+            <div class="box_profile">
+
+                <figure>
+                    @{
+                        if (ViewBag.Resim != null)
+                        {
+                            <img src="~/Content/user-photos/@ViewBag.Resim" alt="" class="img-fluid">
+                        }
+                        else
+                        {
+                            <img src="~/Content/img/default.jpg" alt="" class="img-fluid">
+                        }
+                    }
+                </figure>
+
+                <h1>@ViewBag.Firma</h1>
+
+            </div>
+        </aside>
+        <!-- /asdide -->
+
+        <div class="col-xl-9 col-lg-8">
+
+            <div class="tabs_styled_2">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="book-tab" data-toggle="tab" href="#book" role="tab" aria-controls="book">Profil Düzenle</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-expanded="true">Sicil Kayıtlarım</a>
+                    </li>
+                    <li style="display:none" class="nav-item">
+                        <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews">Bakiye Yükle</a>
+                    </li>
+                </ul>
+                <!--/nav-tabs -->
+
+                <div class="tab-content">
+
+                    <div class="tab-pane fade show active" id="book" role="tabpanel" aria-labelledby="book-tab">
+
+                        <div class="alert alert-danger">
+                            Dikkat ! Eğer profil fotoğrafı güncelliyorsanız: "Dosyanın Boyutu" veya "Dosyanın Tipi (PNG, JPG, JPEG veya GIF)"
+                            şartlarımıza uymuyor ise profiliniz güncellenmez.<br />
+                            Dikkat ! Eğer Yetkili Ad Soyad, Şifre ve Telefon numaranız şartlarımıza uymuyorsa profiliniz güncellenmez.
+                        </div>
+
+                        <p class="lead add_bottom_30">Profil bilgileriniz aşağıda yer almaktadır. <strong>E-Posta</strong> adresinizi değiştirmeniz mümkün değildir.</p>
+                        @using (Html.BeginForm("IsciKaydi", "HomeController", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="row">
+
+                                <div class="col-sm-6">
+                                    <strong>Profil Resmi Seçiniz :</strong><br />
+                                    <input type="file" name="profilresmi" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <input class="form-control" id="dogumtarihi" name="dogumtarihi" placeholder="Doğum Tarihi" disabled type="text" value="@ViewBag.EPosta (Değiştirilemez)" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input class="samoloto" id="samoloto" name="id" type="hidden" value="@ViewBag.Id" />
+                                    <input class="form-control" id="yetkiliadsoyad" name="yetkiliadsoyad" placeholder="Yetkili Ad Soyad" type="text" value="@ViewBag.Yetkili" />
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <input class="form-control" id="sifre" name="sifre" placeholder="Şifre giriniz" type="password" value="@ViewBag.Sifre" />
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input class="form-control" id="telefon" name="telefon" placeholder="Telefon" type="text" value="@ViewBag.Telefon" />
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <input class="form-control" id="firmaadi" name="firmaadi" placeholder="Firma Adı" type="text" value="@ViewBag.Firma" />
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input class="form-control" id="dogumtarihi" name="dogumtarihi" placeholder="Doğum Tarihi" disabled type="text" value="@ViewBag.Kadi    (Değiştirilemez)" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <select class="form-control" id="sehir" name="sehir">
+                                        <option style="font-weight:600;" value="@ViewBag.SehirId">@ViewBag.Sehir (Mevcut Şehriniz)</option>
+                                        <option value="01">Adana</option>
+                                        <option value="02">Adıyaman</option>
+                                        <option value="03">Afyon</option>
+                                        <option value="04">Ağrı</option>
+                                        <option value="05">Amasya</option>
+                                        <option value="06">Ankara</option>
+                                        <option value="07">Antalya</option>
+                                        <option value="08">Artvin</option>
+                                        <option value="09">Aydın</option>
+                                        <option value="10">Balıkesir</option>
+                                        <option value="11">Bilecik</option>
+                                        <option value="12">Bing&#246;l</option>
+                                        <option value="13">Bitlis</option>
+                                        <option value="14">Bolu</option>
+                                        <option value="15">Burdur</option>
+                                        <option value="16">Bursa</option>
+                                        <option value="17">&#199;anakkale</option>
+                                        <option value="18">&#199;ankırı</option>
+                                        <option value="19">&#199;orum</option>
+                                        <option value="20">Denizli</option>
+                                        <option value="21">Diyarbakır</option>
+                                        <option value="22">Edirne</option>
+                                        <option value="23">Elazığ</option>
+                                        <option value="24">Erzincan</option>
+                                        <option value="25">Erzurum</option>
+                                        <option value="26">Eskişehir</option>
+                                        <option value="27">Gaziantep</option>
+                                        <option value="28">Giresun</option>
+                                        <option value="29">G&#252;m&#252;şhane</option>
+                                        <option value="30">Hakkari</option>
+                                        <option value="31">Hatay</option>
+                                        <option value="32">Isparta</option>
+                                        <option value="33">Mersin</option>
+                                        <option value="34">İstanbul</option>
+                                        <option value="35">İzmir</option>
+                                        <option value="36">Kars</option>
+                                        <option value="37">Kastamonu</option>
+                                        <option value="38">Kayseri</option>
+                                        <option value="39">Kırklareli</option>
+                                        <option value="40">Kırşehir</option>
+                                        <option value="41">Kocaeli</option>
+                                        <option value="42">Konya</option>
+                                        <option value="43">K&#252;tahya</option>
+                                        <option value="44">Malatya</option>
+                                        <option value="45">Manisa</option>
+                                        <option value="46">K.Maraş</option>
+                                        <option value="47">Mardin</option>
+                                        <option value="48">Muğla</option>
+                                        <option value="49">Muş</option>
+                                        <option value="50">Nevşehir</option>
+                                        <option value="51">Niğde</option>
+                                        <option value="52">Ordu</option>
+                                        <option value="53">Rize</option>
+                                        <option value="54">Sakarya</option>
+                                        <option value="55">Samsun</option>
+                                        <option value="56">Siirt</option>
+                                        <option value="57">Sinop</option>
+                                        <option value="58">Sivas</option>
+                                        <option value="59">Tekirdağ</option>
+                                        <option value="60">Tokat</option>
+                                        <option value="61">Trabzon</option>
+                                        <option value="62">Tunceli</option>
+                                        <option value="63">Şanlıurfa</option>
+                                        <option value="64">Uşak</option>
+                                        <option value="65">Van</option>
+                                        <option value="66">Yozgat</option>
+                                        <option value="67">Zonguldak</option>
+                                        <option value="68">Aksaray</option>
+                                        <option value="69">Bayburt</option>
+                                        <option value="70">Karaman</option>
+                                        <option value="71">Kırıkkale</option>
+                                        <option value="72">Batman</option>
+                                        <option value="73">Şırnak</option>
+                                        <option value="74">Bartın</option>
+                                        <option value="75">Ardahan</option>
+                                        <option value="76">Iğdır</option>
+                                        <option value="77">Yalova</option>
+                                        <option value="78">Karab&#252;k</option>
+                                        <option value="79">Kilis</option>
+                                        <option value="80">Osmaniye</option>
+                                        <option value="81">D&#252;zce</option>
+                                    </select>
+
+                                </div>
+
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <input class="form-control" id="adres" name="adres" placeholder="Adres" type="text" value="@ViewBag.Adres" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <input class="form-control" id="siteadresi" name="siteadresi" placeholder="Site Adresi" type="text" value="@ViewBag.Site" />
+                                </div>
+                            </div>
+
+
+
+                            <style>
+                                input {
+                                    margin: 10px;
+                                }
+                            </style>
+                            <hr>
+                            <p class="text-center"><button href="booking-page.html" type="submit" class="btn_1 medium">Güncelle</button></p>
+                        }
+                    </div>
+                    <!-- /tab_1 -->
+
+                    <div class="tab-pane fade" id="general" role="tabpanel" aria-labelledby="general-tab">
+
+                        <div class="wrapper_indent">
+                            <p style="margin:5px">
+                                <strong>Dikkat!</strong> sicil kayıtları asla düzenlenemez. Sicil bildirilirken yönetici onayı alamayan sicil kayıtları
+                                asla yayınlanmaz. <strong style="color:red">Sicili eğer silerseniz geri alamazsınız !</strong>
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Başlık</th>
+                                            <th>Detay</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            OnlineSicilDBEntities2 db = new OnlineSicilDBEntities2();
+                                            foreach (var item in db.SicilKayitlari)
+                                            {
+                                                if (item.ekleyenkadi == ViewBag.Kadi)
+                                                {
+                                                    if (item.sicilbilgi == "isci")
+                                                    {
+                                                        <tr>
+                                                            <td><img src="~/Content/img/isci.png" height="50" /> @item.adsoyad</td>
+                                                            <td><a href="../../profil/sicil-kaydi-sil/@item.id" class="btn btn-danger">Bu Sicil Kaydını Sil</a></td>
+                                                        </tr>
+                                                    }
+                                                    if (item.sicilbilgi == "isveren")
+                                                    {
+                                                        <tr>
+                                                            <td><img src="~/Content/img/isveren.png" height="50" /> @item.firmaunvani</td>
+                                                            <td><a href="../../profil/sicil-kaydi-sil/@item.id" class="btn btn-danger">Bu Sicil Kaydını Sil</a></td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            }
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /tab_2 -->
+
+                    <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                        <div class="wrapper_indent">
+                            <p style="margin:5px">
+                                <strong>Dikkat!</strong> sicil kayıtları asla düzenlenemez. Sicil bildirilirken yönetici onayı alamayan sicil kayıtları
+                                asla yayınlanmaz. <strong style="color:red">Sicili eğer silerseniz geri alamazsınız !</strong>
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Başlık</th>
+                                            <th>Detay</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            OnlineSicilDBEntities2 db3 = new OnlineSicilDBEntities2();
+                                            foreach (var item in db3.SicilKayitlari)
+                                            {
+                                                if (item.ekleyenkadi == ViewBag.Kadi)
+                                                {
+                                                    if (item.sicilbilgi == "isci")
+                                                    {
+                                                        <tr>
+                                                            <td><img src="~/Content/img/isci.png" height="50" /> @item.adsoyad</td>
+                                                            <td><a href="../../profil/sicil-kaydi-sil/@item.id" class="btn btn-danger">Bu Sicil Kaydını Sil</a></td>
+                                                        </tr>
+                                                    }
+                                                    if (item.sicilbilgi == "isveren")
+                                                    {
+                                                        <tr>
+                                                            <td><img src="~/Content/img/isveren.png" height="50" /> @item.firmaunvani</td>
+                                                            <td><a href="../../profil/sicil-kaydi-sil/@item.id" class="btn btn-danger">Bu Sicil Kaydını Sil</a></td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            }
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /tab_3 -->
+                </div>
+                <!-- /tab-content -->
+            </div>
+            <!-- /tabs_styled -->
+        </div>
+        <!-- /col -->
+    </div>
+    <!-- /row -->
+</div>
+<script>
+    document.getElementById("samoloto").innerText = "@ViewBag.Kadi";
+</script>
+<!-- /container -->
